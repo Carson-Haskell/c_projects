@@ -4,49 +4,49 @@
 int main(void)
 {
   float change;
+
+  // tracks coins needed
   int coins = 0;
   int amount;
-  int quarters, nickles, dimes, pennys = 0;
+  // tracks specific coins needed
+  int quarter, nickel, dime, penny;
 
   do {
-    printf("Oi! How much change is owed? ");
+    printf("How much change is owed? ");
     scanf("%f", &change);
-  }
-  while (change < 0);
+  } while (amount < 0);
 
-
+  // converts float --> int and rounds
   amount = round(change * 100);
 
   while (amount > 0) {
-
     if (amount >= 25) {
       amount -= 25;
       coins++;
-      quarters++;
+      quarter++;
     }
     if (amount < 25 && amount >= 10) {
       amount -= 10;
       coins++;
-      nickles++;
+      nickel++;
     }
     if (amount < 10 && amount >= 5) {
       amount -= 5;
       coins++;
-      dimes++;
+      dime++;
     }
     if (amount < 5 && amount >= 1) {
       amount -= 1;
       coins++;
-      pennys++;
+      dime++;
     }
   }
 
-
   printf("Total coins needed: %d\n", coins);
-  printf("Quarters: %d\n", quarters);
-  printf("Nickles: %d\n", nickles);
-  printf("Dimes: %d\n", dimes);
-  printf("Pennys: %d\n", pennys);
+  printf("Quarters needed: %d\n", quarter);
+  printf("Nickels needed: %d\n", nickel);
+  printf("Dimes needed: %d\n", dime);
+  printf("Pennys needed: %d\n", penny);
 
   return 0;
 }
